@@ -1,6 +1,4 @@
 import 'dart:io';
-
-import 'package:dio/dio.dart';
 import 'package:weather_app/core/resources/data_state.dart';
 import 'package:weather_app/data/dto/weather_dto.dart';
 import 'package:weather_app/data/retrofit/weather_api_service.dart';
@@ -16,7 +14,7 @@ class WeatherRepositoryImpl implements WeatherRepository {
   Future<DataState<WeatherDto>> fetchWeather(
       String latitude, String longitude) async {
     try {
-      final httpResponse = await _weatherApiService.fetchWeather(
+      var httpResponse = await _weatherApiService.fetchWeather(
           latitude: latitude,
           longitude: longitude,
           appId: ApiKeys.appId,
@@ -25,14 +23,10 @@ class WeatherRepositoryImpl implements WeatherRepository {
       if (httpResponse.response.statusCode == HttpStatus.ok) {
         return DataSuccess(httpResponse.data);
       } else {
-        return DataError(DioException(
-            error: httpResponse.response.statusMessage,
-            response: httpResponse.response,
-            type: DioExceptionType.badResponse,
-            requestOptions: httpResponse.response.requestOptions));
+        return DataError(httpResponse.response.statusMessage!);
       }
-    } on DioException catch (e) {
-      return DataError(e);
+    }catch (e) {
+      return DataError(e.toString());
     }
   }
 }

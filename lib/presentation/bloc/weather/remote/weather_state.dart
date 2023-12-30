@@ -4,7 +4,7 @@ import 'package:weather_app/domain/models/weather_model.dart';
 
 abstract class WeatherState extends Equatable {
   final WeatherModel? weatherModel;
-  final DioException? error;
+  final String? error;
 
   const WeatherState({this.weatherModel, this.error});
 
@@ -22,5 +22,5 @@ class WeatherStateSuccess extends WeatherState {
 }
 
 class WeatherStateError extends WeatherState {
-  const WeatherStateError(DioException error) : super(error: error);
+  const WeatherStateError(String error) : super(error: error);
 }
