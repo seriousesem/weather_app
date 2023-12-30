@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/di/injection_container.dart';
 
-void main() {
+Future<void> main() async {
+  await initializeDependencies();
   runApp(const MyApp());
 }
 
