@@ -11,8 +11,6 @@ class WeatherModel extends Equatable {
     required this.humidity,
     required this.visibility,
     required this.windSpeed,
-    required this.windDeg,
-    required this.clouds,
   });
 
   final String cityName;
@@ -24,8 +22,6 @@ class WeatherModel extends Equatable {
   final String humidity;
   final String visibility;
   final String windSpeed;
-  final String windDeg;
-  final String clouds;
 
   @override
   List<Object> get props => [
@@ -38,7 +34,5 @@ class WeatherModel extends Equatable {
         humidity,
         visibility,
         windSpeed,
-        windDeg,
-        clouds,
       ];
 }
