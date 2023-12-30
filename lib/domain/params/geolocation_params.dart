@@ -1,4 +1,4 @@
-abstract class GeolocationParams {
+class GeolocationParams {
   final String latitude;
   final String longitude;
 
