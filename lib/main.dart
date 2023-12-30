@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/config/theme/app_themes.dart';
 import 'package:weather_app/di/injection_container.dart';
 import 'package:weather_app/presentation/bloc/weather/remote/weather_block.dart';
-import 'package:weather_app/presentation/pages/home/current_weather.dart';
-
+import 'core/navigation/app_routes.dart';
+import 'core/theme/app_themes.dart';
 import 'presentation/bloc/weather/remote/weather_event.dart';
+import 'presentation/pages/current_weather/current_weather_page.dart';
 
 Future<void> main() async {
   await initializeDependencies();
@@ -21,8 +21,9 @@ class WeatherApp extends StatelessWidget {
       create: (context) => getIt()..add(const FetchWeather()),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        onGenerateRoute: AppRoutes.onGenerateRoutes,
         theme: theme(),
-        home: const CurrentWeather(),
+        home: const CurrentWeatherPage(),
       ),
     );
   }

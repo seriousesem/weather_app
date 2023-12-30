@@ -1,34 +1,29 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app/domain/models/weather_model.dart';
 import 'package:weather_app/presentation/bloc/weather/remote/weather_block.dart';
 import 'package:weather_app/presentation/bloc/weather/remote/weather_state.dart';
+import 'package:weather_app/utils/constants.dart';
+import '../../../core/navigation/app_routes.dart';
+import '../../widgets/app_bar.dart';
+import '../../widgets/current_weather_card_widget.dart';
 
-import '../../../utils/constants.dart';
-import '../../../utils/images_assets.dart';
-import '../../widgets/weather_card_widget.dart';
-
-class CurrentWeather extends StatelessWidget {
-  const CurrentWeather({super.key});
+class CurrentWeatherPage extends StatelessWidget {
+  const CurrentWeatherPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(),
-      body: _buildBody(),
-    );
-  }
-
-  _buildAppBar() {
-    return AppBar(
-      title: const Text(
+      appBar: buildAppBar(
         Titles.currentWeatherPageTitle,
-        style: TextStyle(color: Colors.black),
+        null,
       ),
+      body: _buildBody(context),
     );
   }
 
-  _buildBody() {
+  _buildBody(BuildContext context) {
     return BlocBuilder<WeatherBloc, WeatherState>(
       builder: (_, state) {
         if (state is WeatherStateLoading) {
@@ -45,8 +40,12 @@ class CurrentWeather extends StatelessWidget {
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              WeatherCard(
-                weatherModel: state.weatherModel!,
+              buildCurrentWeatherCardWidget(
+                state.weatherModel!,
+                () => _goToDetailsWeatherPage(
+                  context,
+                  state.weatherModel!,
+                ),
               ),
             ],
           );
@@ -54,5 +53,10 @@ class CurrentWeather extends StatelessWidget {
         return const SizedBox();
       },
     );
+  }
+
+  _goToDetailsWeatherPage(BuildContext context, WeatherModel weatherModel) {
+    Navigator.pushNamed(context, AppRoutesNames.detailsWeatherPage,
+        arguments: weatherModel);
   }
 }

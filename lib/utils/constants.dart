@@ -12,6 +12,7 @@ abstract class ApiKeys{
 
 abstract class Titles{
   static const String currentWeatherPageTitle = 'Поточна погода';
+  static const String detailsWeatherPageTitle = 'Детальна інформація';
 }
 abstract class AppStrings{
   static const String weatherDescription = 'Погодні умови: ';
@@ -21,6 +22,9 @@ abstract class AppStrings{
   static const String visibility = 'Видимість: ';
   static const String windSpeed = 'Швидкість вітру: ';
   static const String celsius = '°C';
+  static const String gigaPaskal = 'гПа';
+  static const String percent = '%';
+  static const String meterPerSecond = 'м/с';
   static const String cardHint = 'Для детальної інформації про погоду натисніть на картку';
 }
 abstract class WeatherIconCodes{
