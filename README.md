@@ -1,16 +1,35 @@
-# weather_app
+# Погода
 
-Weather app
+Погода - додаток для відображення поточної погоди
 
-## Getting Started
+## Про додаток
 
-This project is a starting point for a Flutter application.
+- Додаток використовує API OpenWeatherMap (https://openweathermap.org/), щоб отримати дані про
+  погоду.
+- При запуску додатку виконується перевірка чи надано дозвіл на використання геолокації і чи
+  увімкнено
+  геолокація на пристрої, якщо дозвіл не надано або геолокацію не увімкненно, користувач за
+  допомогою
+  діалогового вікна інформуюється, що будуть завантажені дефолтні дані для Пуща-Водиця.
+- Якщо доступ надано і увікнено геолокацію, то на першому екрані відображаються основні погодні
+  дані.
+- При натисненні на картку погодних даних відкривається екран з детальними погодними даними, при
+  натисненні на кнопку назад - повертаємся на попередній екран.
 
-A few resources to get you started if this is your first Flutter project:
+## Технічні дані
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Flutter version 3.16.5 on channel stable
+- Dart version 3.2.3
+- kotlin_version = '1.9.22'
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Використанні бібілотеки
+
+- flutter_bloc - менеджер станів
+- get_it - використання залежностей
+- dio + retrofit - мережеві запити
+- location - перевірка дозволу використання геолокації, перевірка чи увімкненно геолокацію та
+  отримання поточної геолокації
+- app_settings - відкриття налаштування додатку для надання необхідних дозволів, якщо вони були
+  заборонені
+
+
