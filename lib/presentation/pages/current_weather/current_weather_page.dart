@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/core/resources/error_type.dart';
 import 'package:weather_app/domain/models/weather_model.dart';
-import 'package:weather_app/presentation/bloc/weather/weather_event.dart';
 import 'package:weather_app/presentation/bloc/weather/weather_state.dart';
 import 'package:weather_app/utils/constants.dart';
 import '../../../core/navigation/app_routes.dart';

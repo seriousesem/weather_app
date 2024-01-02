@@ -45,6 +45,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
     if (!serviceEnabled) {
       serviceEnabled = await location.requestService();
       if (!serviceEnabled) {
+        add(const FetchWeather());
         return;
       }
     }
