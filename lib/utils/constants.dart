@@ -31,7 +31,7 @@ abstract class AppStrings{
   static const String cardHint = 'Для детальної інформації про погоду натисніть на картку';
 }
 abstract class AppErrors{
-  static const String locationPermissionError = 'Для отримання данних про погоду для вашого міста потрібно надати доступ до геолокації, "Так" - відкрити екран налаштування додатку, "Ні" - заватажити данні для міста Київ';
+  static const String locationPermissionError = 'Для отримання данних про погоду для вашого міста потрібно надати доступ до геолокації, "Так" - відкрити екран налаштування додатку, "Ні" - заватажити данні для Пуща-Водиця';
   static const String unknownError = 'Виникла невідома помилка, повідомте про цю помилку службу підтримки';
   static const String noInternetConnectionError = 'Відсутнє підключення до інтернету, увімкніть інтернет та спробуйте ще раз';
   static const String connectionTimeoutError = 'Викликано тайм-аут підключення, спробуйте трішки пізніше';
