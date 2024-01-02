@@ -28,7 +28,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       emit(WeatherStateSuccess(dataState.data!));
     }
     if (dataState is DataError) {
-      emit(WeatherStateError(dataState.error ?? AppErrors.unknownError,
+      emit(WeatherStateError(dataState.error ?? AppErrors.noInternetConnectionError,
           dataState.errorType ?? ErrorType.unknownError));
     }
   }

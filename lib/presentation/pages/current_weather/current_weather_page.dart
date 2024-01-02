@@ -39,7 +39,7 @@ class CurrentWeatherPage extends StatelessWidget {
           if (state.errorType == ErrorType.permissionError) {
             return Center(
               child: buildErrorDialogWithTwoButtons(
-                error: state.error ?? AppErrors.unknownError,
+                error: state.error ?? AppErrors.noInternetConnectionError,
                 noButtonAction: () {
                   context.read<WeatherBloc>().onNoButtonAction();
                 },
@@ -53,7 +53,7 @@ class CurrentWeatherPage extends StatelessWidget {
           if (state.errorType == ErrorType.loadError) {
             return Center(
               child: buildErrorDialogWithOneButton(
-                error: state.error ?? AppErrors.unknownError,
+                error: state.error ?? AppErrors.noInternetConnectionError,
                 yesButtonAction: () {
                   context.read<WeatherBloc>().onYesButtonAction(
                       state.errorType ?? ErrorType.unknownError);
@@ -64,7 +64,7 @@ class CurrentWeatherPage extends StatelessWidget {
           if (state.errorType == ErrorType.unknownError) {
             return Center(
               child: buildErrorDialogWithOneButton(
-                error: state.error ?? AppErrors.unknownError,
+                error: state.error ?? AppErrors.noInternetConnectionError,
                 yesButtonAction: () {
                   context.read<WeatherBloc>().onYesButtonAction(
                       state.errorType ?? ErrorType.unknownError);
