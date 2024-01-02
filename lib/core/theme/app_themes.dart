@@ -5,6 +5,7 @@ ThemeData theme() {
     scaffoldBackgroundColor: Colors.white,
     fontFamily: 'Muli',
     appBarTheme: appBarTheme(),
+    pageTransitionsTheme: pageTransitionsTheme(),
   );
 }
 
@@ -15,5 +16,14 @@ AppBarTheme appBarTheme() {
     centerTitle: true,
     iconTheme: IconThemeData(color: Color(0xFF8B8B8B)),
     titleTextStyle: TextStyle(color: Color(0xFF8B8B8B), fontSize: 18),
+  );
+}
+
+pageTransitionsTheme() {
+  return const PageTransitionsTheme(
+    builders: {
+      TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
+      TargetPlatform.iOS: FadeUpwardsPageTransitionsBuilder(),
+    },
   );
 }

@@ -4,7 +4,8 @@ import 'package:weather_app/data/repository/weather_repository_impl.dart';
 import 'package:weather_app/data/retrofit/weather_api_service.dart';
 import 'package:weather_app/domain/repositories/weather_repository.dart';
 import 'package:weather_app/domain/usecase/fetch_weather.dart';
-import 'package:weather_app/presentation/bloc/weather/remote/weather_block.dart';
+
+import '../presentation/bloc/weather/weather_block.dart';
 
 final getIt = GetIt.instance;
 

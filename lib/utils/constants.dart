@@ -13,6 +13,9 @@ abstract class ApiKeys{
 abstract class Titles{
   static const String currentWeatherPageTitle = 'Поточна погода';
   static const String detailsWeatherPageTitle = 'Детальна інформація';
+  static const String errorDialogTitle = 'Сталася помилка';
+  static const String yesButtonTitle = 'Так';
+  static const String noButtonTitle = 'Ні';
 }
 abstract class AppStrings{
   static const String weatherDescription = 'Погодні умови: ';
@@ -26,6 +29,11 @@ abstract class AppStrings{
   static const String percent = '%';
   static const String meterPerSecond = 'м/с';
   static const String cardHint = 'Для детальної інформації про погоду натисніть на картку';
+}
+abstract class AppErrors{
+  static const String locationPermissionError = 'Для отримання данних про погоду для вашого міста потрібно надати доступ до геолокації, "Так" - відкрити екран налаштування додатку, "Ні" - заватажити данні для міста Київ';
+  static const String unknownError = 'Виникла невідома помилка, спробувати ще раз?';
+
 }
 abstract class WeatherIconCodes{
   static const String iconCode01d = '01d';

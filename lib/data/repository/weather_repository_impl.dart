@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:weather_app/core/resources/data_state.dart';
+import 'package:weather_app/core/resources/error_type.dart';
 import 'package:weather_app/data/dto/weather_dto.dart';
 import 'package:weather_app/data/retrofit/weather_api_service.dart';
 import 'package:weather_app/domain/repositories/weather_repository.dart';
@@ -23,10 +24,12 @@ class WeatherRepositoryImpl implements WeatherRepository {
       if (httpResponse.response.statusCode == HttpStatus.ok) {
         return DataSuccess(httpResponse.data);
       } else {
-        return DataError(httpResponse.response.statusMessage!);
+        return DataError(
+            httpResponse.response.statusMessage ?? AppErrors.unknownError,
+            ErrorType.loadError);
       }
-    }catch (e) {
-      return DataError(e.toString());
+    } catch (e) {
+      return DataError(e.toString(), ErrorType.unknownError);
     }
   }
 }
